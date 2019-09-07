@@ -116,3 +116,19 @@ print(sorted(cmp2keyarr, key = functools.cmp_to_key(compare)))
 reduces = range(1, 6)
 print(functools.reduce(lambda x, y: x + y, reduces))
 
+# total_ordering
+# 类修饰器，被修饰的类必须至少定义__lt__(), __le__(), __gt__(), __ge()__中的一个，同时，被修饰的类还应该提供__eq__()方法
+
+class Person:
+    def __init__(self, lname, fname):
+        self.lname = lname
+        self.fname = fname
+    def __eq__(self, b):
+        return (self.lname.lower(), self.fname.lower()) == (b.lname.lower(), b.fname.lower()) 
+    def __lt__(self, b):
+        return (self.lname.lower(), self.fname.lower()) < (b.lname.lower(), b.fname.lower())
+
+p1 = Person('haines', 't')
+p2 = Person('rock', 'h')
+
+print(p1 < p2, p1 > p2, p1 == p2)
