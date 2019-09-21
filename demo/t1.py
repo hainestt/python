@@ -4,8 +4,9 @@
 import time
 import math
 import re
+import struct
 from datetime import datetime, timedelta, timezone
-from collections import namedtuple, OrderedDict
+from collections import namedtuple, OrderedDict, Counter
 
 
 def sum1(n):
@@ -106,3 +107,51 @@ print(isinstance(p, tuple))
 dt = dict([('a', 1), ('b', 2), ('c', 3)])
 odt = OrderedDict([('a', 1), ('b', 2), ('c', 3)])
 print(dt, odt)
+
+od = OrderedDict()
+od['z'] = 1
+od['a'] = 2
+od['b'] = 3
+
+print(list(od.keys()))
+
+class LastUpdatedOrderedDict(OrderedDict):
+    def __init__(self, capacity):
+        # super(LastUpdatedOrderedDict, self).__init__()
+        self._capacity = capacity
+    
+    def __setitem__(self, key, value):
+        containsKey = 1 if key in self else 0
+
+        if len(self) - containsKey >= self._capacity:
+            last = self.popitem(last = False)
+            print('remove:', last)
+        if containsKey:
+            del self[key]
+            print('set:', (key, value))
+        else:
+            print('add', (key, value))
+        OrderedDict.__setitem__(self, key, value)
+
+lt = LastUpdatedOrderedDict(2)
+lt.__setitem__(10, 20)
+lt.__setitem__(11, 30)
+lt.__setitem__(12, 40)
+lt.__setitem__(13, 50)
+
+print(lt)
+
+ch = Counter()
+for i in 'hello,world':
+    ch[i] = ch[i] + 1
+
+print(ch)
+
+
+st = struct.pack('>I', 10240099)
+print(st)
+
+f = open('./base.py')
+s = f.read()
+f.close()
+print('s-->', s)
