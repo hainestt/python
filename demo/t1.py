@@ -7,6 +7,11 @@ import re
 import struct
 from datetime import datetime, timedelta, timezone
 from collections import namedtuple, OrderedDict, Counter
+import hashlib
+import logging
+import numpy as np
+
+logging.basicConfig(level = logging.INFO)
 
 
 def sum1(n):
@@ -151,7 +156,24 @@ print(ch)
 st = struct.pack('>I', 10240099)
 print(st)
 
-f = open('./base.py')
-s = f.read()
-f.close()
-print('s-->', s)
+# f = open('./base.py')
+# s = f.read()
+# f.close()
+# print('s-->', s)
+
+md5 = hashlib.md5()
+md5.update('how to upgrade your soul'.encode('utf-8'))
+print(md5.hexdigest())
+
+sha1 = hashlib.sha1()
+sha1.update('how to upgrade your soul'.encode('utf-8'))
+print(sha1.hexdigest())
+
+s = '0'
+n = int(s)
+logging.info('n = %d' % n)
+# print(10 / n)
+
+n =  np.arange(20).reshape(5,4)
+
+print('n', n)
