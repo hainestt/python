@@ -56,7 +56,6 @@ class StringList(object):
     #     length = T.GetStringLength()
         
 
-
 # 链式串节点
 class StringNode(object):
     def __init__(self):

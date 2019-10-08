@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from dataStruct.sequenceStack import SequenceStack
+from dataStruct.huffmanTree import HuffmanTreeNode
 
 from sys import getrefcount
 
@@ -32,3 +33,21 @@ t = '秋江楚雁宿沙洲，雁宿沙洲浅水流。流水浅洲沙宿雁，洲
 plaindrome(s)
 
 print(hex(id(s)), hex(id(t)), s is t, getrefcount(t))
+
+
+def hfmtest():
+    LeafNodes = []
+    huffman = HuffmanTreeNode()
+    huffman.CreateLeafNodes(LeafNodes)
+    
+    print('create huffman tree!:)')
+    root = huffman.CreateHuffmanTree(LeafNodes)
+    Codes = []
+    print('huffman encode!:)')
+    huffman.HuffmanEncoding(root, LeafNodes, Codes)
+
+    print('endcode result: ')
+    for index in range(len(Codes)):
+        print(LeafNodes[index].data, ':', Codes[index])
+
+hfmtest()
