@@ -10,6 +10,16 @@ class GLNode(object):
         self.next = None
 
 class GList(object):
+    def CreateTable(self):
+        string = input('input gl string, like: (b,(c,d,e)): ')
+        length = len(string)
+        i = 0
+        table = []
+        while i < length:
+            table.append(string[i])
+            i = i + 1
+        return table
+
     def CreateGList(self, Table):
         if len(Table) > 0:
             tTable = Table.pop(0)

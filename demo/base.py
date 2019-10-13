@@ -71,7 +71,10 @@ print(aa, bb)
 
 print(int('18', 16))
 
-# lambda: 相当与js中的箭头函数
+# lambda: 相当于js中的箭头函数
 g = lambda x, y: x + y
 print(g(1, 210))
+
+# 初始化列表
+[2 for i in range(10)] # 定义一个长度为10的列表，列表中每个值都为2
 

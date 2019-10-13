@@ -6,7 +6,7 @@ from urllib.request import urlopen, urlretrieve
 from bs4 import BeautifulSoup
 
 downloadDir = 'download'
-baseUrl = 'http://pythonscriping.com'
+baseUrl = 'http://www.poemhunter.com'
 
 def getAbsoluteUrl(baseUrl, source):
     if source.startswith('http://www.'):
@@ -32,7 +32,7 @@ def getDownloadPath(baseUrl, absoluteUrl, downloadDir):
     return path
 
 def test():
-    html = urlopen('http://www.pythonscript.com')
+    html = urlopen('https://www.poemhunter.com/rabindranath-tagore/poems/')
     bs = BeautifulSoup(html)
     downloadList = bs.findAll(src = True)
 
