@@ -143,3 +143,28 @@ print(Weekday.Sum)
 Hello = type('Hello', (object,), dict(hello = Weekday))
 h = Hello()
 print(h)
+
+
+# Singleton
+class Singleton(object):
+    _instance = None
+    def __new__(self, *args, **kwargs):
+        if self._instance is None:
+            self._instance = super(Singleton, self).__new__(self, *args, **kwargs)
+        return self._instance
+
+class STest1(Singleton):
+    a = 1
+
+class STest2(Singleton):
+    b = 2
+
+a = STest1()
+b = STest1()
+c = STest2()
+d = STest2()
+
+print('ids->',id(a) == id(b), id(c) == id(d))
+
+a.a = 3
+print('singles->', a.a, b,a)

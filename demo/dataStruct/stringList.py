@@ -135,6 +135,7 @@ class StringList(object):
             else:
                 k = ListNext[k]
 
+        print('NextList', ListNext)
         return ListNext
     
     # 对GetListNext方法改进原因：
@@ -143,7 +144,7 @@ class StringList(object):
     # 
     def GetListNextValue(self):
         length = len(self.chars)
-        ListNextValue = [None for x in range(length * 3)]
+        ListNextValue = [None for x in range(length)]
         ListNextValue[0] = -1
         k = -1
         j = 0
@@ -158,7 +159,7 @@ class StringList(object):
             else:
                 k = ListNextValue[k]
         
-        # print('ListNextValue->', ListNextValue)
+        print('ListNextValue->', ListNextValue)
         return ListNextValue
 
 

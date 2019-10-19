@@ -69,7 +69,18 @@ tp = (bb, aa + bb)
 aa, bb = tp
 print(aa, bb)
 
+
+# 十六进制转十进制
 print(int('18', 16))
+
+# 二进制转十进制
+print(hex(int('1101', 2)))
+
+# 十进制转二进制
+print(bin(10))
+
+# 十进制转八进制
+print(oct(10))
 
 # lambda: 相当于js中的箭头函数
 g = lambda x, y: x + y

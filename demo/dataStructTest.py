@@ -81,8 +81,8 @@ def stringTest():
                 string = lines[i]
                 sourceStr.CreateStringV2(string)
                 # kmpIndex = sourceStr.IndexKMP(0, targetStr, targetStr.GetListNext())
-                kmpIndex = sourceStr.IndexKMP(0, targetStr, targetStr.GetListNextValue())
-                # kmpIndex = sourceStr.IndexBF(0, targetStr)
+                # kmpIndex = sourceStr.IndexKMP(0, targetStr, targetStr.GetListNextValue())
+                kmpIndex = sourceStr.IndexBF(0, targetStr)
 
                 if kmpIndex is not None:
                     print('文件路径：%s, 匹配的文件行： %i, 匹配的文件列：%i' % (path+file, i+1, kmpIndex+1))
@@ -91,6 +91,15 @@ def stringTest():
 
     end1 = time.process_time()
     print('处理时间：', end1 - start1)
+
+
+    # test2
+    ss = StringList()
+    tt = StringList()
+    ss.CreateStringV2('ababaab')
+    tt.CreateStringV2('ababaab')
+
+    ss.IndexKMP(0, tt, tt.GetListNextValue())
 
 stringTest()
 
