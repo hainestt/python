@@ -74,3 +74,6 @@ print('a', 'a'.zfill(5))
 
 # 字母大小写反转
 print('aAa hello<->', 'aAa hello'.swapcase())
+
+# 分割
+print('aAa hello<->', 'aAa hello'.split(' '))

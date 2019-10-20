@@ -64,6 +64,7 @@ class Practise(object):
                 # if sList[i - 1][0] <= j:
                 #     a[i][j] = max(a[i - 1][j], a[i - 1][j - sList[i - 1][0]] + sList[i][1])
         print(a[m][N])
+        
 
 
         

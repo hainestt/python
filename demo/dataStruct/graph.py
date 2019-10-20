@@ -28,7 +28,7 @@ class VertexAdjacencyList(object):
 
 #
 # 说明：定义图中的一条边或弧
-# 释义：包含邻接点或弧头 adjacent、与该边或弧相关的信息info和
+# 释义：邻接点或弧头adjacent、与该边或弧相关的信息info和
 #      与该边或弧依附于相同顶点的下一条边或弧 NextArc
 #
 class ArcAdjacencyList(object):

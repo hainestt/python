@@ -101,7 +101,7 @@ def stringTest():
 
     ss.IndexKMP(0, tt, tt.GetListNextValue())
 
-stringTest()
+# stringTest()
 
 
 def generalListTest():
@@ -111,4 +111,5 @@ def generalListTest():
     gl = s.CreateGList(t)
     s.TraverseGList(gl)
 
-# generalListTest()
+generalListTest()
+
