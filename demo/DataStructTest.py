@@ -6,10 +6,10 @@ import time
 import numpy as np
 
 from sys import getrefcount
-from dataStruct.sequenceStack import SequenceStack
-from dataStruct.huffmanTree import HuffmanTreeNode
-from dataStruct.stringList import StringList
-from dataStruct.generalList import GList
+from dataStruct.SequenceStack import SequenceStack
+from dataStruct.HuffmanTree import HuffmanTreeNode
+from dataStruct.StringList import StringList
+from dataStruct.GeneralList import GList
 
 
 def plaindrome(s):
