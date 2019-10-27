@@ -44,6 +44,56 @@ class Practise(object):
         
         print('output:', ' '.join(strList))
 
+
+
+    def mainFindLongSubString():
+        num = int(input('Please input the group number of substrings:'))
+        strList = []
+        ret = []
+        while num > 0:
+            subs1, subs2 = input('string1:'), input('string2:')
+            strList.append([subs1, subs2])
+            num = num - 1
+        
+        length = len(strList)
+        if length > 0:
+            for i in range(length):
+                    ret.append(findLongSubString(strList[i][0], strList[i][1]))
+        
+        if len(ret) > 0:
+            for i in range(len(ret)):
+                print(ret[i], '\n')
+
+    def findLongSubString(str1, str2):
+        stack = []
+        maxStack = []
+        i,j = 0, 0
+        len1 = len(str1)
+        len2 = len(str2)
+        
+        while i <= len1 - 1:
+            while j <= len2 - 1:
+                if str2[j] == str1[i]:
+                    stack.append(str2[j])
+                    i = i + 1
+                    if i >= len1:
+                        break
+                elif len(stack) > 0:
+                    maxStack.append(len(stack))
+                    stack = []
+                j = j + 1
+            
+            i = i + 1
+            j = 0
+        
+        if len(stack) > 0:
+            maxStack.append(len(stack))
+
+        if len(maxStack) > 0:
+            return max(maxStack)
+        else:
+            return 0
+    
     # 
     # 01背包问题，待回溯
     # TODO
@@ -71,4 +121,4 @@ class Practise(object):
 p = Practise()
 
 # p.sortByDict()
-p.shopping()
+p.mainFindLongSubString()

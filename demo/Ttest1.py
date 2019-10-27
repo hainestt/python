@@ -177,4 +177,3 @@ logging.info('n = %d' % n)
 n =  np.arange(20).reshape(5,4)
 
 # print('n', n)
-

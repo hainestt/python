@@ -1,6 +1,7 @@
 # !/usr/local/bin/python3.7
 # -*- coding: utf-8 -*-
 
+# 十字链表
 # 
 # 定义有向图的一个顶点
 # 

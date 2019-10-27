@@ -118,7 +118,7 @@ class StringList(object):
 
     # 对于当前位置j,ListNext[j]的值计算规则如下：
     # 1，当j = 0是，ListNext[j] = -1
-    # 2，若存在一个k,使得 0<k<j且T[0 ~ k-1] == T[j-k ~ j-1], 则ListNext[j] = k
+    # 2，若存在一个k,使得 0<k<j且T[0 ~ k-1] == T[j-k ~ j-1], 则ListNext[j] = k,
     #    这里把T[0 ~ k-1]称为真前缀串，T[j-k ~ j-1]称为真后缀串
     # 3，其他情况下, ListNext[j] = 0
     def GetListNext(self):

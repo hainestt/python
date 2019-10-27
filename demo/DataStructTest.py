@@ -10,6 +10,7 @@ from dataStruct.SequenceStack import SequenceStack
 from dataStruct.HuffmanTree import HuffmanTreeNode
 from dataStruct.StringList import StringList
 from dataStruct.GeneralList import GList
+from dataStruct.graph.Graph import Graph
 
 
 def plaindrome(s):
@@ -37,8 +38,8 @@ def plaindrome(s):
 s = '秋江楚雁宿沙洲，雁宿沙洲浅水流。流水浅洲沙宿雁，洲沙宿雁楚江秋'
 t = '秋江楚雁宿沙洲，雁宿沙洲浅水流。流水浅洲沙宿雁，洲沙宿雁楚江秋'
 
-plaindrome(s)
-print(hex(id(s)), hex(id(t)), s is t, getrefcount(t))
+# plaindrome(s)
+# print(hex(id(s)), hex(id(t)), s is t, getrefcount(t))
 
 
 def hfmtest():
@@ -103,7 +104,6 @@ def stringTest():
 
 # stringTest()
 
-
 def generalListTest():
     s = GList()
     t = s.CreateTable()
@@ -111,5 +111,12 @@ def generalListTest():
     gl = s.CreateGList(t)
     s.TraverseGList(gl)
 
-generalListTest()
+# generalListTest()
 
+
+def graphTest():
+    g = Graph(1)
+    g.DFSTraverse()
+
+
+graphTest()

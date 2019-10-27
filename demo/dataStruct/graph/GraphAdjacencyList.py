@@ -25,13 +25,13 @@ class ArcAdjacencyList(object):
 # 
 # kind:0->无向图;1->无向网;2->有向图;3->有向网
 # Vertices: 所有顶点的顶点集
-# Arcs: 邻接矩阵
 # VertexNum: 图中顶点数
 # ArcNum: 图中边或弧的数目
 # 
 class GraphAdjacencyList(object):
-    def __init__(self, kind):
+    def __init__(self, kind, *args, **kwargs):
         self.kind = kind
         self.VertexNum = 0
         self.ArcNum = 0
         self.Vertices = []
+        super().__init__(*args, **kwargs)
