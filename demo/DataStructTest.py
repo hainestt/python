@@ -11,6 +11,7 @@ from dataStruct.HuffmanTree import HuffmanTreeNode
 from dataStruct.StringList import StringList
 from dataStruct.GeneralList import GList
 from dataStruct.graph.Graph import Graph
+from dataStruct.Search import Search
 
 
 def plaindrome(s):
@@ -119,4 +120,12 @@ def graphTest():
     g.DFSTraverse()
 
 
-graphTest()
+# graphTest()
+
+def searchTest():
+    s = Search([3, 20, 9, 8, 40, 37, 25, 58, 79, 60, 120, 99], 3)
+
+    i = s.IndexSearch(60)
+    print(i)
+
+searchTest()
