@@ -1,12 +1,46 @@
 # !/usr/local/bin/python3.7
 # -*- coding: utf-8 -*-
 
-class LinkedBinaryTreeNode(object):
+# 
+# 定义一个二叉树的结点
+# 
+class BSTNode(object):
+    def __init__(self, value):
+        self.value = value
+        self.Left = None
+        self.Right = None
+
+# 
+# 二叉树
+# 
+class LinkedBinaryTree(object):
     def __init__(self):
-        self.data = '#'
-        self.LeftChild = None
-        self.RightChild = None
+        self.Root = None
         self.VisitedFlag = 0 # 后序遍历使用
+
+    # 插入结点
+    def InsertNode(self, data):
+        lp = self.Root
+
+        if not lp:
+            self.Root = BSTNode(data)
+            return
+
+        while True:
+            if data < lp.value:
+                if not lp.Left:
+                    lp.Left = BSTNode(data)
+                    return
+                lp = lp.Left
+            elif data > lp.value:
+                if not lp.Right:
+                    lp.Right = BSTNode(data)
+                    return
+                lp = lp.Right
+            else:
+                lp.value = data
+                return
+
 
     def VisitNode(self, Node):
         if Node.data is not '#':
@@ -19,8 +53,8 @@ class LinkedBinaryTreeNode(object):
     def PreOrder(self, Root):
         if Root is not None:
             self.VisitNode(Root)
-            self.PreOrder(Root.LeftChild)
-            self.PreOrder(Root.RightChild)
+            self.PreOrder(Root.Left)
+            self.PreOrder(Root.Right)
     
     def PreOrderNonRecursive(self, Root):
         tStack = []
@@ -29,10 +63,10 @@ class LinkedBinaryTreeNode(object):
             while tp is not None:
                 self.VisitNode(tp)
                 tStack.append(tp)
-                tp = tp.LeftChild
+                tp = tp.Left
             if len(tStack) > 0:
                 tp = tStack.pop()
-                tp = tp.RightChild
+                tp = tp.Right
 
     # 
     # 中序
@@ -40,9 +74,9 @@ class LinkedBinaryTreeNode(object):
     # 
     def InOrder(self, Root):
         if Root is not None:
-            self.InOrder(Root.LeftChild)
+            self.InOrder(Root.Left)
             self.VisitNode(Root)
-            self.InOrder(Root.RightChild)
+            self.InOrder(Root.Right)
     
     def InOrderNonRecursive(self, Root):
         tStack = []
@@ -51,12 +85,12 @@ class LinkedBinaryTreeNode(object):
         while len(tStack) > 0 or tp is not None:
             while tp is not None:
                 tStack.append(tp)
-                tp = tp.LeftChild
+                tp = tp.Left
 
             if len(tStack) > 0:
                 tp = tStack.pop()
                 self.VisitNode(tp)
-                tp = tp.RightChild
+                tp = tp.Right
 
     # 
     # 后序
@@ -64,8 +98,8 @@ class LinkedBinaryTreeNode(object):
     # 
     def PostOrder(self, Root):
         if Root is not None:
-            self.PostOrder(Root.LeftChild)
-            self.PostOrder(Root.RightChild)
+            self.PostOrder(Root.Left)
+            self.PostOrder(Root.Right)
             self.VisitNode(Root)
     
     def PostOrderNonRecursive(self, Root):
@@ -74,20 +108,17 @@ class LinkedBinaryTreeNode(object):
 
         while tp is not None:
             tStack.append(tp)
-            tp = tp.LeftChild
+            tp = tp.Left
         
         while len(tStack) > 0:
             tp = tStack.pop()
             
-            if tp.RightChild is None or tp.VisitedFlag == 1:
+            if tp.Right is None or tp.VisitedFlag == 1:
                 self.VisitNode(tp)
             else:
                 tp.VisitedFlag = 1
                 tStack.append(tp)
-                tp = tp.RightChild
+                tp = tp.Right
                 while tp is not None:
                     tStack.append(tp)
-                    tp = tp.RightChild
-
-    # TODO
-    # 
+                    tp = tp.Right

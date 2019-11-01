@@ -123,9 +123,13 @@ def graphTest():
 # graphTest()
 
 def searchTest():
-    s = Search([3, 20, 9, 8, 40, 37, 25, 58, 79, 60, 120, 99], 3)
+    s = Search([55, 23,78,1,50,96])
 
-    i = s.IndexSearch(60)
+    # i = s.IndexSearch(60)
+    # print(i)
+
+    BSTRoot = s.CreateSearchBST()
+    i = s.SearchBST(BSTRoot, 60)
     print(i)
 
 searchTest()
