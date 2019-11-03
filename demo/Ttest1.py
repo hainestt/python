@@ -177,3 +177,14 @@ logging.info('n = %d' % n)
 n =  np.arange(20).reshape(5,4)
 
 # print('n', n)
+
+def test():
+    p = 0
+    for i in range(10):
+        if i == 5:
+            break
+        p = i
+    
+    print('p-->', p)
+
+test()

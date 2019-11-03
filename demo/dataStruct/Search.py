@@ -91,7 +91,6 @@ class Search(object):
             return self.SearchBST(node.Right, key)
         else:
             return self.SearchBST(node.Left, key)
-
    
     # 
     # 创建二叉树

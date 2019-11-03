@@ -19,6 +19,7 @@ class LinkedBinaryTree(object):
         self.VisitedFlag = 0 # 后序遍历使用
 
     # 插入结点
+    # O(lgn)
     def InsertNode(self, data):
         lp = self.Root
 
@@ -41,6 +42,61 @@ class LinkedBinaryTree(object):
                 lp.value = data
                 return
 
+    # 删除结点
+    # O(lgn)
+    def DeleteNode(self, data):
+        p = self.Root
+        f = None
+
+        # 查找
+        while p:
+            if p.value == data:
+                break
+            f = p
+            if p.value > data:
+                p = p.Left
+            if p.value < data:
+                p = p.Right
+
+        if not p:
+            return
+        
+        # 删除
+        if not p.Left and not p.Right:
+            s = p.Left
+            while not s.Right:
+                s = s.Right
+
+            # 将s的值临时保存到q中
+            q = s.value
+            # 删除结点s
+            self.DeleteNode(s.value)
+            # 将q的值赋值给p
+            p.value = q
+
+        if p.Left is None and p.Right is None:
+            if f.Left == p:
+                f.Left = None
+                return
+            elif f.Right == p:
+                f.Right = None
+                return
+            
+        if not p.Left and p.Right is None:
+            if f.Left == p:
+                f.Left = p.Left
+                return
+            if f.Right == p:
+                f.Right == p.Left
+                return
+        if p.Left is None and not p.Right:
+            if f.Left == p:
+                f.Left = p.Right
+                return
+            if f.Right == p:
+                f.Right = p.Right
+                return
+        
 
     def VisitNode(self, Node):
         if Node.data is not '#':
