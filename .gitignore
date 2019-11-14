@@ -231,3 +231,4 @@ modules.xml
 
 __pycache__
 download*/
+*.csv

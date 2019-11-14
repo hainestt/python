@@ -52,29 +52,32 @@ def fact_iter(n, p):
 print(fact(120))
 
 # 装饰器方法
+# args: 可变参数的列表
+# kwargs: 不定长度的键值对
+# 
 def log(func):
-    def wrapper(*args, **kw):
+    def wrapper(*args, **kwargs):
         print('call %s():' %func.__name__)
-        return func(*args, **kw)
+        return func(*args, **kwargs)
     return wrapper
 
 # 装饰器
 @log
-def now():
+def now(a,b,c):
     print('2019-8-30')
 
-now()
+now('aaa', 123, {'a': 2})
 
 # 斐波那契 生成器
-# def fib2(max):
-#     n,a,b = 0,0,1
-#     while n < max: 
-#         yield b
-#         a, b = b, a + b
-#         n = n + 1
-#     return 'done'
+def fib2(max):
+    n,a,b = 0,0,1
+    while n < max: 
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
 
-# f = fib2(6)
+f = fib2(6)
 # print(f.next())
 
 print(isinstance([], collections.Iterable))
